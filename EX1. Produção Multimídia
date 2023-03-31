@@ -1,0 +1,37 @@
+# Produção Multimídia, sistema de assinaturas para utilização de um estúdio de gravação.
+# Sua tarefa é criar um algoritmo que receba o tipo de assinatura do cliente,
+# o faturamento anual dele e que calcule e exiba qual o valor do bônus que o cliente deve pagar a vocês.
+
+def pergunta_ao_cliente():
+    assinatura = input("Bem-vindo, cliente, insira seu tipo de assinatura: ")
+    assinatura = assinatura.upper()
+    faturamento = input("Insira seu faturamento anual: ")
+    return assinatura, faturamento
+
+
+perguntas = pergunta_ao_cliente()
+
+
+def confere_respostas():
+    bonus = 0
+    if perguntas[0] == "BASIC":
+        bonus = float(perguntas[1]) * 0.3
+    elif perguntas[0] == "SILVER":
+        bonus = float(perguntas[1]) * 0.2
+    elif perguntas[0] == "GOLD":
+        bonus = float(perguntas[1]) * 0.1
+    elif perguntas[0] == "PLATINUM":
+        bonus = float(perguntas[1]) * 0.05
+    return bonus
+
+
+resposta = confere_respostas()
+
+lista_tipos = ['BASIC', 'SILVER', 'GOLD', 'PLATINUM']
+if perguntas[0] not in lista_tipos:
+    print("Você não digitou um tipo de assinatura válido. Tente de novo: ")
+    perguntas = pergunta_ao_cliente()
+    resposta = confere_respostas()
+
+print(f"Cliente, de acordo com seu faturamento de {perguntas[1]},")
+print(f"o bônus que você deve pagar é: {resposta} reais.")
