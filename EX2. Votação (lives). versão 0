@@ -1,0 +1,33 @@
+# Votação a cerca de qual dia devem ser realizadas as lives da faculdade.
+# O usuário informa a quantidade de votos que cada um dos 5 dias da semana obtiveram,
+# verifique e exiba qual dia foi o escolhido.
+def pula_linha():
+    print(" ")
+    return
+
+
+print("Bem-vindo, a seguir, será definido qual dia da semana acontecerão as lives da faculdade.")
+pula_linha()
+lista_votos = []
+lista_dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira']
+
+for i in range(5):
+    lista_votos.append(int(input(f"Insira quantos votos {lista_dias_semana[i]} recebeu: ")))
+
+pula_linha()
+print(f"As quantias de votos de acordo com os respectivos dias da semana (de segunda à sexta) são:")
+print(f"{lista_votos[0]}, {lista_votos[1]}, {lista_votos[2]}, {lista_votos[3]}, {lista_votos[4]}.")
+
+contador = int(0)
+maior = lista_votos[contador]
+dia = lista_dias_semana[0]
+while contador < 4:
+    if lista_votos[contador + 1] > maior:
+        maior = lista_votos[contador + 1]
+        dia = lista_dias_semana[contador + 1]
+    contador += 1
+
+pula_linha()
+print(f"De acordo com a votação, {dia} venceu, com {maior} votos.")
+pula_linha()
+print("FIM DA EXECUÇÃO.")
