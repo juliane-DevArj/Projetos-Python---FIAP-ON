@@ -1,0 +1,52 @@
+# Atividade sobre inserir as notas dos alunos, primeiro os com números ímpares
+# depois com os números pares. Depois, cálculo de média.
+
+# Início, Boas-vindas ao professor. Criar variáveis para armazenar as somas das notas.
+print("Bem vindo, professor, comece a digitar as notas dos seus alunos agora!")
+print(" ")
+soma_val_imp = 0
+soma_val_par = 0
+
+# Para a var i (com alcance até 49),
+# Nota de lembrete para o professor de que esses são os alunos ímpares.
+# Adicionamos os valores digitados pelo professor à somatória das notas ímpares.
+for i in range(1, 50, 2):
+    print("VOCÊ ESTÁ DIGITANDO AS NOTAS DOS ALUNOS ÍMPARES")
+    notas_alunos_impares = (float(input(f"POR FAVOR, INSIRA A NOTA DO ALUNO DE NÚMERO {i} : ")))
+    soma_val_imp += notas_alunos_impares
+
+# Para var i com alcance até 50
+# Nota de lembrete para o professor de que esses são os alunos pares.
+# Adicionamos os valores digitados pelo professor à somatória das notas pares.
+for i in range(2, 51, 2):
+    print("VOCÊ ESTÁ DIGITANDO AS NOTAS DOS ALUNOS PARES")
+    notas_alunos_pares = (float(input(f"POR FAVOR, INSIRA A NOTA DO ALUNO DE NÚMERO {i} : ")))
+    soma_val_par += notas_alunos_pares
+
+# Cálculo da média
+media_impares = soma_val_imp/25
+media_pares = soma_val_par/25
+maior_valor = 0
+maior = 'none'
+
+# Definindo qual das médias ficou maior
+if media_pares > media_impares:
+    maior_valor = media_pares
+    maior = 'PARES'
+
+if media_impares > media_pares:
+    maior_valor = media_impares
+    maior = 'ÍMPARES'
+
+# Em caso de empate:
+if media_pares == media_impares:
+    print(f"Professor a média dos alunos ímpares é: {round(media_impares, 2)}")
+    print(f"a média dos alunos pares é {round(media_impares, 2)}")
+    print("Ouve um equilíbrio nas notas, as duas turmas estão exatamente no mesmo nível.")
+
+# Quando não houver empate:
+if media_pares > media_impares or media_impares > media_pares:
+    print(f"Professor a média dos alunos ímpares é: {round(media_impares, 3)}")
+    print(f"a média dos alunos pares é {round(media_pares, 3)}")
+    print(f"Sendo assim, a turma de alunos {maior} ficou com a maior média: ")
+    print(round(maior_valor, 3))
