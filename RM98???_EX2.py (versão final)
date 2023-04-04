@@ -1,0 +1,52 @@
+# Votação a cerca de qual dia devem ser realizadas as lives da faculdade.
+# O usuário informa a quantidade de votos que cada um dos 5 dias da semana obtiveram,
+# verifique e exiba qual dia foi o escolhido.
+
+# Mensagem inicial.
+print("Bem-vindo, a seguir, será definido qual dia da semana acontecerão as lives da faculdade.")
+print("O número máximo que pode ser inserido como quantidade de votos é 30.")
+print(" ")
+
+# Perguntas sobre a quantidade de votos para cada dia da semana.
+votos_segunda = (int(input(f"Insira quantos votos segunda-feira recebeu: ")))
+votos_terca = (int(input(f"Insira quantos votos terça-feira recebeu: ")))
+votos_quarta = (int(input(f"Insira quantos votos quarta-feira recebeu: ")))
+votos_quinta = (int(input(f"Insira quantos votos quinta-feira recebeu: ")))
+votos_sexta = (int(input(f"Insira quantos votos sexta-feira recebeu: ")))
+
+# Enquanto o user não digitar votos até 30, o programa pergunta novamente sobre os votos.
+while votos_segunda > 31 or votos_terca > 31 or votos_quarta > 31 or votos_quinta > 31 or votos_sexta > 31:
+    print("Foi digitado um valor inválido para a votação. A quantidade máxima é 30. Tente de novo.")
+    votos_segunda = (int(input(f"Insira quantos votos segunda-feira recebeu: ")))
+    votos_terca = (int(input(f"Insira quantos votos terça-feira recebeu: ")))
+    votos_quarta = (int(input(f"Insira quantos votos quarta-feira recebeu: ")))
+    votos_quinta = (int(input(f"Insira quantos votos quinta-feira recebeu: ")))
+    votos_sexta = (int(input(f"Insira quantos votos sexta-feira recebeu: ")))
+# Se o user digitar corretamente os votos, break do While.
+    if votos_segunda < 31 and votos_terca < 31 and votos_quarta < 31 and votos_quinta < 31 and votos_sexta < 31:
+        break
+
+# Mostrar os votos de cada dia da semana.
+print(" ")
+print(f"As quantias de votos de acordo com os respectivos dias da semana (de segunda à sexta) são:")
+print(f"{votos_segunda}, {votos_terca}, {votos_quarta}, {votos_quinta}, {votos_sexta}.")
+
+lista_votos = [votos_segunda, votos_terca, votos_quarta, votos_quinta, votos_sexta]
+lista_dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira']
+
+# Nesse próximo trecho eu verifico qual é o maior valor dentre os votos.
+contador = int(0)
+maior = lista_votos[contador]
+dia = lista_dias_semana[0]
+# Contador do while até 4 para incluir os cinco dias úteis da semana.
+while contador < 4:
+    if lista_votos[contador + 1] > maior:
+        maior = lista_votos[contador + 1]
+        dia = lista_dias_semana[contador + 1]
+    contador += 1
+
+# Mostra qual é o melhor dia para a live, conforme a votação.
+print(" ")
+print(f"De acordo com a votação, {dia} venceu, com {maior} votos.")
+print(" ")
+print("FIM DA EXECUÇÃO.")
