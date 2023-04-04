@@ -1,0 +1,50 @@
+# Produção Multimídia, sistema de assinaturas para utilização de um estúdio de gravação.
+# Sua tarefa é criar um algoritmo que receba o tipo de assinatura do cliente,
+# o faturamento anual dele e que calcule e exiba qual o valor do bônus que o cliente deve pagar a vocês.
+
+# Perguntas iniciais ao cliente
+print("Bem-vindo, cliente, insira seu tipo de assinatura: ")
+assinatura = input("Os tipos de assinatura (Basic, Silver, Gold, Platinum): ")
+faturamento = input("Insira seu faturamento anual: ")
+# Inicializada a var bônus, para realizar o cálculo
+bonus = 0
+
+# Se o user digitou um tipo válido de assinatura, é feito o cálculo do Bônus.
+if assinatura == "basic" or "Basic":
+    bonus = float(faturamento) * 0.3
+elif assinatura == "Silver" or "silver":
+    bonus = float(faturamento) * 0.2
+elif assinatura == "Gold" or "gold":
+    bonus = float(faturamento) * 0.1
+elif assinatura == "Platinum" or "platinum":
+    bonus = float(faturamento) * 0.05
+
+# Se o user não digitou um tipo válido de assinatura, então, o loop while faz as perguntas novamente.
+lista_tipos = ['basic', 'Basic', 'Silver', 'silver', 'Gold', 'gold', 'Platinum', 'platinum']
+while assinatura not in lista_tipos:
+    print("Você não digitou um tipo de assinatura válido. Tente de novo: ")
+    assinatura = input("Os tipos de assinatura (Basic, Silver, Gold, Platinum): ")
+    faturamento = input("Insira seu faturamento anual: ")
+    if assinatura in lista_tipos:
+        break
+
+# Com os novos valores inseridos, temos, de novo, o cálculo do bônus.
+bonus = 0
+if assinatura == "basic" or assinatura == "Basic":
+    assinatura = "Basic"
+    bonus = float(faturamento) * 0.3
+elif assinatura == "Silver" or assinatura == "silver":
+    assinatura = "Silver"
+    bonus = float(faturamento) * 0.2
+elif assinatura == "Gold" or assinatura == "gold":
+    assinatura = "Gold"
+    bonus = float(faturamento) * 0.1
+elif assinatura == "Platinum" or assinatura == "platinum":
+    assinatura = "Platinum"
+    bonus = float(faturamento) * 0.05
+
+# Agora é o momento de apresentar o resultado final ao user.
+print(f"Cliente {assinatura}, de acordo com seu faturamento de {faturamento} reais,")
+print(f"o bônus que você deve pagar é: {round(bonus, 3)} reais.")
+print(" ")
+print(" FIM DA EXECUÇÃO ")
