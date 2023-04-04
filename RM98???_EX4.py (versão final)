@@ -1,0 +1,40 @@
+# Hacker pede digitação de senha para liberação da máquina.
+# A senha é 'LIBERDADE' seguida dos minutos atuais fatorados.
+# Receba do user os minutos atuais e mostre qual deve ser a senha utilizada.
+
+# Boas-vindas ao usuário.
+print("VAMOS LIBERTAR SUA MÁQUINA DO HACKER. ")
+
+# Tentar receber um valor INT, mas se ouver erro, mostrar um erro.
+while True:
+    try:
+        minutos_atuais = int(input("DIGITE OS MINUTOS DO HORÁRIO ATUAL: "))
+        break
+# Abaixo, o que ele deve fazer em caso de erro (ValueError).
+    except ValueError:
+        print("Não foi digitado um número válido até 59, tente de novo.")
+        minutos_atuais = int(input("DIGITE OS MINUTOS DO HORÁRIO ATUAL: "))
+
+# Em caso de digitação de número maior do que 59, mostrar um erro.
+erro = True
+while erro:
+    if minutos_atuais > 59 or minutos_atuais < 0:
+        print("O número digitado não é válido, tente digitar um número entre 0 e 59.")
+        minutos_atuais = int(input("DIGITE OS MINUTOS DO HORÁRIO ATUAL: "))
+    else:
+        erro = False
+        print("VAMOS CALCULAR QUAL A SENHA CORRETA.")
+        break
+
+# Utilizar um laço while para calcular o fatorial até que chegue no 1.
+minutos_fatorial = 1
+x = minutos_atuais
+while x > 0:
+    minutos_fatorial = minutos_fatorial * x
+    x -= 1
+
+# Mostrar para o user qual deve ser a senha que ele precisa digitar.
+print(f"USUÁRIO, SUA SENHA PARA RECUPERAR SUA MÁQUINA É :")
+print(f"LIBERDADE{minutos_fatorial}")
+print(" ")
+print("FIM DA EXECUÇÃO")
